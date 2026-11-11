@@ -12,8 +12,7 @@ st.title("🌍 Country Development Clustering")
 st.write("Explore countries grouped by their socioeconomic indicators.")
 
 # Load dataset
-df = pd.read_csv("Country-data.csv")
-
+df = pd.read_csv("Country-data-clustered.csv")
 # Select a country
 country = st.selectbox(
     "Select a country",
