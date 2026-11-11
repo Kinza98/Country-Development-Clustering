@@ -13,6 +13,33 @@ st.write("Explore countries grouped by their socioeconomic indicators.")
 
 # Load dataset
 df = pd.read_csv("Country-data-clustered.csv")
+
+st.header("Dataset Overview")
+
+st.write("Complete dataset:")
+st.dataframe(df)
+
+st.write("Dataset Shape:", df.shape)
+
+st.header("Cluster Distribution")
+
+cluster_counts = df["clusters"].value_counts()
+
+st.bar_chart(cluster_counts)
+
+st.header("Cluster Statistics")
+
+cluster_summary = df.groupby("clusters")[[
+    "child_mort",
+    "income",
+    "gdpp",
+    "life_expec",
+    "health",
+    "inflation",
+    "total_fer"
+]].mean().round(2)
+
+st.dataframe(cluster_summary)
 # Select a country
 country = st.selectbox(
     "Select a country",
